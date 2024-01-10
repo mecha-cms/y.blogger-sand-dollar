@@ -20,7 +20,7 @@
 
 a,
 [role=link] {
-  color: #DE7008;
+  color: #de7008;
 }
 a img,
 [role=link] img {
@@ -31,7 +31,7 @@ a:focus,
 [role=link]:focus,
 a:hover,
 [role=link]:hover {
-  color: #E0AD12;
+  color: #e0ad12;
   text-decoration: underline;
 }
 a[aria-current],
@@ -99,7 +99,7 @@ figcaption {
 }
 
 code {
-  color: #9E5205;
+  color: #9e5205;
   font-family: "Courier New", Courier, monospace;
 }
 
@@ -190,7 +190,6 @@ h3,
 h4,
 h5,
 h6 {
-  color: #777;
   font-family: Verdana, Geneva, sans-serif;
   letter-spacing: -1px;
   line-height: 1.15;
@@ -289,8 +288,8 @@ table th {
   vertical-align: top;
 }
 table th {
-  background: #F5E39E;
-  color: #9E5205;
+  background: #f5e39e;
+  color: #9e5205;
 }
 
 ul {
@@ -349,11 +348,10 @@ input[type=submit],
 button[type=submit],
 select,
 textarea {
-  accent-color: var(--color-link);
-  background: var(--fill-input, var(--fill));
-  border: 1px solid;
-  border-color: var(--stroke-input, var(--stroke));
-  color: var(--color-input);
+  accent-color: #de7008;
+  background: #fff;
+  border: 1px solid #e0ad12;
+  color: #000;
   display: inline-block;
   height: 2rem;
   line-height: calc(2rem - 2px);
@@ -374,9 +372,9 @@ input[type=reset],
 button[type=reset],
 input[type=submit],
 button[type=submit] {
-  background: var(--fill-button, var(--fill));
+  background: #ffa500;
   border-width: 0;
-  color: var(--color-button) !important;
+  color: #fff !important;
   cursor: pointer;
   font-weight: bold;
   line-height: 2rem;
@@ -385,6 +383,18 @@ button[type=submit] {
   text-align: center;
   text-decoration: none !important;
   width: auto;
+}
+button:focus,
+[role=button]:focus,
+input[type=button]:focus,
+input[type=reset]:focus,
+input[type=submit]:focus,
+button:hover,
+[role=button]:hover,
+input[type=button]:hover,
+input[type=reset]:hover,
+input[type=submit]:hover {
+  background: #ffb93a;
 }
 
 button::-moz-focus-inner,
@@ -517,10 +527,6 @@ textarea {
 .form-comment p select + br + small,
 .form-comment p textarea + br + small {
   color: var(--color-2);
-}
-
-form[name=pass] {
-  padding: 16px;
 }
 
 [role=search] input,
@@ -680,10 +686,6 @@ form[name=pass] {
   background: #f6f6f6;
 }
 
-form[name=user] {
-  padding: 16px;
-}
-
 body > div {
   margin: 0 auto;
 }
@@ -717,12 +719,12 @@ body > div > footer p {
   margin: 0;
 }
 body > div > header {
-  background: #DE7008;
-  border-top: 3px double #BF5C00;
-  color: #F5DEB3;
+  background: #de7008;
+  border-top: 3px double #bf5c00;
+  color: #f5deb3;
 }
 body > div > header h1 {
-  border-bottom: 1px solid #E89E47;
+  border-bottom: 1px solid #e89e47;
   color: inherit;
   font-size: 300%;
   letter-spacing: -2px;
@@ -745,9 +747,9 @@ body > div > header h1 [role=link]:hover:visited {
   color: inherit;
 }
 body > div > header p {
-  background: #F5E39E;
-  border-bottom: 1px solid #E0AD12;
-  color: #9E5205;
+  background: #f5e39e;
+  border-bottom: 1px solid #e0ad12;
+  color: #9e5205;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 110%;
   font-weight: bold;
@@ -756,8 +758,8 @@ body > div > header p {
 }
 body > div > nav {
   background: #fcfcfc;
-  border-bottom: 1px dotted #E0AD12;
-  color: #9E5205;
+  border-bottom: 1px dotted #e0ad12;
+  color: #9e5205;
   font-family: Verdana, Geneva, sans-serif;
   font-size: 110%;
   font-weight: bold;
@@ -777,6 +779,12 @@ body > div > nav > ul > li > a,
 body > div > nav > ul > li > [role=link] {
   display: block;
 }
+body > div > nav > ul > li > a:focus,
+body > div > nav > ul > li > [role=link]:focus,
+body > div > nav > ul > li > a:hover,
+body > div > nav > ul > li > [role=link]:hover {
+  text-decoration: none;
+}
 body > div > header + div,
 body > div > nav + div {
   display: flex;
@@ -789,7 +797,7 @@ body > div > nav + div > aside {
   margin: 0;
   order: -1;
   padding: 25px 25px 25px 0;
-  width: 200px;
+  width: 250px;
 }
 body > div > header + div > aside > div li [role=status]::after,
 body > div > header + div > aside > div summary [role=status]::after,
@@ -834,7 +842,7 @@ body > div > header + div > main > article > header h2,
 body > div > header + div > main > article > header h3,
 body > div > nav + div > main > article > header h2,
 body > div > nav + div > main > article > header h3 {
-  color: #9E5205;
+  color: #9e5205;
 }
 body > div > header + div > main > article > header h2 a,
 body > div > header + div > main > article > header h2 [role=link],

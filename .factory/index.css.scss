@@ -26,14 +26,14 @@
 }
 
 a {
-  color: #DE7008;
+  color: #de7008;
   img {
     background: red;
     padding: 4px;
   }
   &:focus,
   &:hover {
-    color: #E0AD12;
+    color: #e0ad12;
     text-decoration: underline;
   }
   &[aria-current],
@@ -89,7 +89,7 @@ figcaption {
 }
 
 code {
-  color: #9E5205;
+  color: #9e5205;
   font-family: 'Courier New', Courier, monospace;
 }
 
@@ -184,7 +184,6 @@ h4,
 h5,
 h6 {
   @extend b;
-  color: #777;
   font-family: Verdana, Geneva, sans-serif;
   letter-spacing: -1px;
   line-height: 1.15;
@@ -283,8 +282,8 @@ table {
     vertical-align: top;
   }
   th {
-    background: #F5E39E;
-    color: #9E5205;
+    background: #f5e39e;
+    color: #9e5205;
   }
 }
 
@@ -335,11 +334,10 @@ video {
 input,
 select,
 textarea {
-  accent-color: var(--color-link);
-  background: var(--fill-input, var(--fill));
-  border: 1px solid;
-  border-color: var(--stroke-input, var(--stroke));
-  color: var(--color-input);
+  accent-color: #de7008;
+  background: #fff;
+  border: 1px solid #e0ad12;
+  color: #000;
   display: inline-block;
   height: 2rem;
   line-height: calc(2rem - 2px); // Minus the border width
@@ -351,9 +349,9 @@ textarea {
 
 button {
   @extend input;
-  background: var(--fill-button, var(--fill));
+  background: #ffa500;
   border-width: 0;
-  color: var(--color-button) !important;
+  color: #fff !important;
   cursor: pointer;
   font-weight: bold;
   line-height: 2rem;
@@ -364,6 +362,10 @@ button {
   text-align: center;
   text-decoration: none !important;
   width: auto;
+  &:focus,
+  &:hover {
+    background: #ffb93a;
+  }
 }
 
 input[type='button'],
@@ -467,10 +469,8 @@ textarea {
 
 @import './_/x/alert';
 @import './_/x/comment';
-@import './_/x/pass';
 @import './_/x/search';
 @import './_/x/t-o-c';
-@import './_/x/user';
 
 body {
   > div {
@@ -499,11 +499,11 @@ body {
       }
     }
     > header {
-      background: #DE7008;
-      border-top: 3px double #BF5C00;
-      color: #F5DEB3;
+      background: #de7008;
+      border-top: 3px double #bf5c00;
+      color: #f5deb3;
       h1 {
-        border-bottom: 1px solid #E89E47;
+        border-bottom: 1px solid #e89e47;
         color: inherit;
         font: {
           size: 300%;
@@ -522,9 +522,9 @@ body {
         }
       }
       p {
-        background: #F5E39E;
-        border-bottom: 1px solid #E0AD12;
-        color: #9E5205;
+        background: #f5e39e;
+        border-bottom: 1px solid #e0ad12;
+        color: #9e5205;
         font-family: Verdana, Geneva, sans-serif;
         font-size: 110%;
         font-weight: bold;
@@ -534,8 +534,8 @@ body {
     }
     > nav {
       background: #fcfcfc;
-      border-bottom: 1px dotted #E0AD12;
-      color: #9E5205;
+      border-bottom: 1px dotted #e0ad12;
+      color: #9e5205;
       font-family: Verdana, Geneva, sans-serif;
       font-size: 110%;
       font-weight: bold;
@@ -552,6 +552,10 @@ body {
         > li {
           > a {
             display: block;
+            &:focus,
+            &:hover {
+              text-decoration: none;
+            }
           }
         }
       }
@@ -567,7 +571,7 @@ body {
           margin: 0;
           order: -1;
           padding: 25px 25px 25px 0;
-          width: 200px;
+          width: 250px;
           > div {
             li,
             summary {
@@ -605,7 +609,7 @@ body {
             > header {
               h2,
               h3 {
-                color: #9E5205;
+                color: #9e5205;
                 a {
                   color: inherit;
                   &:focus,
