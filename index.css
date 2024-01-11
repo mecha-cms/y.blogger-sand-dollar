@@ -349,8 +349,8 @@ button[type=submit],
 select,
 textarea {
   accent-color: #de7008;
-  background: #fff;
-  border: 1px solid #e0ad12;
+  background: #eee;
+  border: 1px solid #ccc;
   color: #000;
   display: inline-block;
   height: 2rem;
@@ -478,7 +478,7 @@ textarea {
 }
 
 [role=status] {
-  color: var(--color);
+  color: #777;
   font-weight: normal;
 }
 
@@ -488,14 +488,13 @@ textarea {
 }
 
 [role=alert] {
-  background: var(--fill-alert);
-  border: 1px solid;
-  border-color: var(--stroke-alert);
+  background: rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(0, 0, 0, 0.5);
   padding: 0.25rem 0.75rem;
   text-align: center;
 }
 [role=alert] + article {
-  margin-top: 1.15rem;
+  margin-top: 1rem;
 }
 [role=alert] a,
 [role=alert] [role=link] {
@@ -511,7 +510,6 @@ textarea {
 
 .comments h3,
 .comments h4 {
-  color: var(--color-title);
   font-size: 125%;
 }
 
@@ -526,7 +524,7 @@ textarea {
 .form-comment p [role=button] + br + small,
 .form-comment p select + br + small,
 .form-comment p textarea + br + small {
-  color: var(--color-2);
+  color: #777;
 }
 
 [role=search] input,
@@ -680,7 +678,7 @@ textarea {
 }
 [role=doc-toc] [role=doc-pagelist] li::after,
 [role=doc-toc] [role=doc-pagelist] li::before {
-  border-color: #E0AD12;
+  border-color: #e0ad12;
 }
 [role=doc-toc] [role=doc-pagelist] li:last-child::after {
   background: #f6f6f6;
@@ -690,30 +688,15 @@ body > div {
   margin: 0 auto;
 }
 body > div > footer {
-  background: var(--fill-1) linear-gradient(rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0)) repeat-x 0 0;
-  background-size: 20px 20px;
-  color: var(--color-1);
+  background: #eee;
+  border-top: 1px dotted #e0ad12;
+  color: #9e5205;
   display: flex;
   flex-wrap: wrap;
   gap: 1.15rem;
   justify-content: space-between;
   margin: 0;
-}
-body > div > footer a,
-body > div > footer [role=link] {
-  color: inherit;
-}
-body > div > footer a:focus,
-body > div > footer [role=link]:focus,
-body > div > footer a:hover,
-body > div > footer [role=link]:hover {
-  color: inherit;
-}
-body > div > footer a:focus:visited,
-body > div > footer [role=link]:focus:visited,
-body > div > footer a:hover:visited,
-body > div > footer [role=link]:hover:visited {
-  color: inherit;
+  padding: 15px 5%;
 }
 body > div > footer p {
   margin: 0;
@@ -819,11 +802,8 @@ body > div > nav + div > aside > div::after {
 }
 body > div > header + div > aside > div h3,
 body > div > nav + div > aside > div h3 {
+  color: #968a0a;
   font-size: 110%;
-}
-body > div > header + div > aside > div ul,
-body > div > nav + div > aside > div ul {
-  list-style-image: var(--bullet);
 }
 body > div > header + div > main,
 body > div > nav + div > main {
@@ -874,7 +854,9 @@ body > div > nav + div > main > article > header h3 [role=link]:hover {
 }
 body > div > header + div > main > article > header p time,
 body > div > nav + div > main > article > header p time {
+  color: #777;
   display: block;
+  font-size: 110%;
   font-weight: bold;
 }
 body > div > header + div > main > article + nav,
