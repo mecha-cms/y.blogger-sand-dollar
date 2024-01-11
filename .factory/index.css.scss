@@ -186,7 +186,6 @@ h6 {
   @extend b;
   font-family: Verdana, Geneva, sans-serif;
   letter-spacing: -1px;
-  line-height: 1.15;
 }
 
 h1 {
@@ -599,6 +598,7 @@ body {
               h2,
               h3 {
                 color: #9e5205;
+                margin-top: 0;
                 a {
                   color: inherit;
                   &:focus,

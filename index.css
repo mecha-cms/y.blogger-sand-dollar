@@ -192,7 +192,6 @@ h5,
 h6 {
   font-family: Verdana, Geneva, sans-serif;
   letter-spacing: -1px;
-  line-height: 1.15;
 }
 
 h1 {
@@ -517,6 +516,7 @@ textarea {
   color: inherit;
   font: inherit;
   font-weight: bold;
+  letter-spacing: 0;
 }
 
 .form-comment p input + br + small,
@@ -823,6 +823,7 @@ body > div > header + div > main > article > header h3,
 body > div > nav + div > main > article > header h2,
 body > div > nav + div > main > article > header h3 {
   color: #9e5205;
+  margin-top: 0;
 }
 body > div > header + div > main > article > header h2 a,
 body > div > header + div > main > article > header h2 [role=link],
