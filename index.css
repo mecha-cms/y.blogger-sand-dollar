@@ -679,6 +679,7 @@ textarea {
 [role=doc-toc] [role=doc-pagelist] li::after,
 [role=doc-toc] [role=doc-pagelist] li::before {
   border-color: #e0ad12;
+  border-style: dotted;
 }
 [role=doc-toc] [role=doc-pagelist] li:last-child::after {
   background: #f6f6f6;
@@ -851,7 +852,7 @@ body > div > nav + div > main > article > header h3 a:focus,
 body > div > nav + div > main > article > header h3 [role=link]:focus,
 body > div > nav + div > main > article > header h3 a:hover,
 body > div > nav + div > main > article > header h3 [role=link]:hover {
-  color: #000;
+  text-decoration: none;
 }
 body > div > header + div > main > article > header p time,
 body > div > nav + div > main > article > header p time {
