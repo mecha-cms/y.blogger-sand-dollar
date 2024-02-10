@@ -323,6 +323,7 @@ video {
   + ol,
   + p,
   + pre,
+  + search,
   + section,
   + table,
   + ul {
@@ -620,6 +621,29 @@ body {
               display: flex;
               justify-content: space-between;
             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 920px) {
+  body {
+    > div {
+      > header,
+      > nav {
+        + div {
+          flex-direction: column;
+          > aside,
+          > main {
+            margin: 5% 0 0;
+            padding: 0;
+          }
+          > aside {
+            border-right-width: 0;
+            margin-bottom: 5%;
+            order: 0;
           }
         }
       }
