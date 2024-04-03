@@ -345,6 +345,10 @@ textarea {
   padding: 0 0.5rem;
   vertical-align: middle;
   width: 12rem;
+  &:read-only:focus-visible {
+    outline: 1px solid;
+    outline-offset: 1px;
+  }
 }
 
 button {
@@ -364,7 +368,7 @@ button {
   width: auto;
   &:focus,
   &:hover {
-    background: #ffb93a;
+    background: #ea9903;
   }
 }
 
@@ -487,6 +491,10 @@ body {
       padding: 15px 5%;
       p {
         margin: 0;
+        &:only-child {
+          flex: 1;
+          text-align: right;
+        }
       }
     }
     > header {

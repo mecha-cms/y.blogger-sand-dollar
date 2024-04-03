@@ -360,6 +360,14 @@ textarea {
   vertical-align: middle;
   width: 12rem;
 }
+input:read-only:focus-visible,
+button:read-only:focus-visible,
+[role=button]:read-only:focus-visible,
+select:read-only:focus-visible,
+textarea:read-only:focus-visible {
+  outline: 1px solid;
+  outline-offset: 1px;
+}
 
 button,
 [role=button],
@@ -394,7 +402,7 @@ button:hover,
 input[type=button]:hover,
 input[type=reset]:hover,
 input[type=submit]:hover {
-  background: #ffb93a;
+  background: #ea9903;
 }
 
 button::-moz-focus-inner,
@@ -711,6 +719,10 @@ body > div > footer {
 }
 body > div > footer p {
   margin: 0;
+}
+body > div > footer p:only-child {
+  flex: 1;
+  text-align: right;
 }
 body > div > header {
   background: #de7008;
