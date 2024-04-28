@@ -13,7 +13,7 @@
 }
 
 :root {
-  background: #f6f6f6;
+  background: #eee;
   color: #000;
   font: 400 normal 13px/1.5 "Trebuchet MS", Trebuchet, Verdana, Geneva, sans-serif;
 }
@@ -160,6 +160,30 @@ button[type=image],
 details summary {
   cursor: pointer;
   user-select: none;
+}
+
+p > label,
+p > select,
+p > input[type=checkbox],
+p > button[type=checkbox],
+p > [type=checkbox][role=button],
+p > input[type=file],
+p > button[type=file],
+p > [type=file][role=button],
+p > input[type=radio],
+p > button[type=radio],
+p > [type=radio][role=button],
+p > input[type=range],
+p > button[type=range],
+p > [type=range][role=button],
+p > input[type=color],
+p > button[type=color],
+p > [type=color][role=button],
+p > input[type=image],
+p > button[type=image],
+p > [type=image][role=button],
+details p > summary {
+  line-height: calc(2rem - 2px);
 }
 
 dl,
@@ -355,18 +379,9 @@ textarea {
   display: inline-block;
   height: 2rem;
   line-height: calc(2rem - 2px);
-  outline: 0;
   padding: 0 0.5rem;
   vertical-align: middle;
   width: 12rem;
-}
-input:read-only:focus-visible,
-button:read-only:focus-visible,
-[role=button]:read-only:focus-visible,
-select:read-only:focus-visible,
-textarea:read-only:focus-visible {
-  outline: 1px solid;
-  outline-offset: 1px;
 }
 
 button,
@@ -391,18 +406,6 @@ button[type=submit] {
   text-align: center;
   text-decoration: none !important;
   width: auto;
-}
-button:focus,
-[role=button]:focus,
-input[type=button]:focus,
-input[type=reset]:focus,
-input[type=submit]:focus,
-button:hover,
-[role=button]:hover,
-input[type=button]:hover,
-input[type=reset]:hover,
-input[type=submit]:hover {
-  background: #ea9903;
 }
 
 button::-moz-focus-inner,
@@ -704,6 +707,7 @@ search p {
 }
 
 body > div {
+  background: #f6f6f6;
   margin: 0 auto;
 }
 body > div > footer {

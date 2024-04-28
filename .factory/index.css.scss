@@ -20,7 +20,7 @@
 }
 
 :root {
-  background: #f6f6f6;
+  background: #eee;
   color: #000;
   font: 400 normal 13px/1.5 'Trebuchet MS', Trebuchet, Verdana, Geneva, sans-serif;
 }
@@ -147,6 +147,10 @@ ins {
 label {
   cursor: pointer;
   user-select: none;
+}
+
+p > label {
+  line-height: calc(2rem - 2px);
 }
 
 dfn,
@@ -341,14 +345,9 @@ textarea {
   display: inline-block;
   height: 2rem;
   line-height: calc(2rem - 2px); // Minus the border width
-  outline: 0;
   padding: 0 0.5rem;
   vertical-align: middle;
   width: 12rem;
-  &:read-only:focus-visible {
-    outline: 1px solid;
-    outline-offset: 1px;
-  }
 }
 
 button {
@@ -366,10 +365,6 @@ button {
   text-align: center;
   text-decoration: none !important;
   width: auto;
-  &:focus,
-  &:hover {
-    background: #ea9903;
-  }
 }
 
 input[type='button'],
@@ -478,9 +473,10 @@ textarea {
 
 body {
   > div {
+    background: #f6f6f6;
     margin: 0 auto;
     > footer {
-      background: #eee;
+      background: #eee; // Same with `:root` background color, to make it look like a sticky footer
       border-top: 1px dotted #e0ad12;
       color: #9e5205;
       display: flex;
