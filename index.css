@@ -1,5 +1,7 @@
 /*! Sand Dollar Blogger template by Jason Sutter */
-* {
+*,
+::after,
+::before {
   background: 0 0;
   border: 0;
   box-sizing: border-box;
@@ -10,6 +12,72 @@
   text-align: inherit;
   text-decoration: none;
   word-wrap: break-word;
+}
+
+:where(address,
+  article,
+  aside,
+  blockquote,
+  dd,
+  details,
+  div,
+  dl,
+  dt,
+  fieldset,
+  figure,
+  footer,
+  form,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  hgroup,
+  hr,
+  main,
+  nav,
+  ol,
+  p,
+  pre,
+  search,
+  section,
+  table,
+  ul):where(:not(:last-child)) {
+  margin-bottom: 1.15rem;
+}
+
+li:where(:not(:first-child)) > :where(address,
+  article,
+  aside,
+  blockquote,
+  dd,
+  details,
+  div,
+  dl,
+  dt,
+  fieldset,
+  figure,
+  footer,
+  form,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  hgroup,
+  hr,
+  main,
+  nav,
+  p,
+  pre,
+  search,
+  section,
+  table):where(:first-child) {
+  margin-top: 1.15rem;
 }
 
 :root {
@@ -94,7 +162,7 @@ blockquote {
 caption,
 figcaption {
   color: #777;
-  margin: 0.5rem 0 0;
+  margin: 1rem 0 0;
   text-align: center;
 }
 
@@ -103,13 +171,13 @@ code {
   font-family: "Courier New", Courier, monospace;
 }
 
-details summary {
+details > summary {
   display: block;
   padding-left: 1.15rem;
   position: relative;
   text-decoration: none !important;
 }
-details summary::before {
+details > summary::before {
   border-bottom: 4px solid transparent;
   border-left: 8px solid;
   border-right: 0 solid transparent;
@@ -122,19 +190,24 @@ details summary::before {
   top: 50%;
   width: 0;
 }
-details[open] summary::before {
+details[open] > summary {
+  margin-bottom: 1.15rem;
+}
+details[open] > summary::before {
   border-bottom: 0 solid transparent;
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
   border-top: 8px solid;
   margin-top: -3px;
 }
-details[role=tree] ul {
-  margin-top: 0;
-  list-style: none;
+details[role=tree] {
+  margin-bottom: 0;
 }
-details[role=tree] + [role=tree] {
-  margin-top: 0;
+details[role=tree][open] > summary {
+  margin-bottom: 0;
+}
+details[role=tree] ul {
+  list-style: none;
 }
 
 label,
@@ -157,7 +230,7 @@ button[type=color],
 input[type=image],
 button[type=image],
 [type=image][role=button],
-details summary {
+details > summary {
   cursor: pointer;
   user-select: none;
 }
@@ -181,8 +254,7 @@ p > button[type=color],
 p > [type=color][role=button],
 p > input[type=image],
 p > button[type=image],
-p > [type=image][role=button],
-details p > summary {
+p > [type=image][role=button] {
   line-height: calc(2rem - 2px);
 }
 
@@ -206,6 +278,10 @@ figure {
 }
 figure img {
   display: block;
+}
+
+form > p:last-of-type {
+  margin-bottom: 0;
 }
 
 h1,
@@ -249,9 +325,6 @@ hr {
 
 legend {
   padding: 0 0.5rem;
-}
-legend + * {
-  margin-top: 0;
 }
 
 mark,
@@ -320,42 +393,11 @@ ul {
 }
 
 audio,
+iframe,
 video {
   display: block;
   height: auto;
   width: 100%;
-}
-
-* + address,
-* + article,
-* + aside,
-* + blockquote,
-* + details,
-* + div,
-* + dl,
-* + dt,
-* + fieldset,
-* + figure,
-* + footer,
-* + form,
-* + h1,
-* + h2,
-* + h3,
-* + h4,
-* + h5,
-* + h6,
-* + header,
-* + hr,
-* + main,
-* + nav,
-* + ol,
-* + p,
-* + pre,
-* + search,
-* + section,
-* + table,
-* + ul {
-  margin-top: 1.15rem;
 }
 
 input,
@@ -372,7 +414,7 @@ input[type=submit],
 button[type=submit],
 select,
 textarea {
-  accent-color: #de7008;
+  accent-color: #968a0a;
   background: #eee;
   border: 1px solid #ccc;
   color: #000;
@@ -395,7 +437,7 @@ input[type=reset],
 button[type=reset],
 input[type=submit],
 button[type=submit] {
-  background: #ffa500;
+  background: #968a0a;
   border-width: 0;
   color: #fff !important;
   cursor: pointer;
@@ -504,9 +546,6 @@ textarea {
   padding: 0.25rem 0.75rem;
   text-align: center;
 }
-[role=alert] + article {
-  margin-top: 1rem;
-}
 [role=alert] a,
 [role=alert] [role=link] {
   text-decoration: underline;
@@ -537,6 +576,10 @@ textarea {
 .form-comment p select + br + small,
 .form-comment p textarea + br + small {
   color: #777;
+}
+
+form[name=pass] {
+  padding: 1.15rem;
 }
 
 search {
@@ -706,6 +749,10 @@ search p {
   background: #f6f6f6;
 }
 
+form[name=user] {
+  padding: 1.15rem;
+}
+
 body > div {
   background: #f6f6f6;
   margin: 0 auto;
@@ -732,12 +779,14 @@ body > div > header {
   background: #de7008;
   border-top: 3px double #bf5c00;
   color: #f5deb3;
+  margin-bottom: 0;
 }
 body > div > header h1 {
   border-bottom: 1px solid #e89e47;
   color: inherit;
   font-size: 300%;
   letter-spacing: -2px;
+  margin-bottom: 0;
   padding: 25px 5% 10px;
 }
 body > div > header h1 a,
@@ -835,6 +884,7 @@ body > div > nav + div > aside > div h3 {
 body > div > header + div > main,
 body > div > nav + div > main {
   flex: 1;
+  margin: 0;
   max-width: 800px;
   min-width: 0;
   padding: 25px 0 25px 25px;
@@ -850,7 +900,6 @@ body > div > header + div > main > article > header h3,
 body > div > nav + div > main > article > header h2,
 body > div > nav + div > main > article > header h3 {
   color: #9e5205;
-  margin-top: 0;
 }
 body > div > header + div > main > article > header h2 a,
 body > div > header + div > main > article > header h2 [role=link],
@@ -886,6 +935,12 @@ body > div > nav + div > main > article > header p time {
   display: block;
   font-size: 110%;
   font-weight: bold;
+}
+body > div > header + div > main > article > header p + h2,
+body > div > header + div > main > article > header p + h3,
+body > div > nav + div > main > article > header p + h2,
+body > div > nav + div > main > article > header p + h3 {
+  margin-top: -1.15rem;
 }
 body > div > header + div > main > article + nav,
 body > div > nav + div > main > article + nav {

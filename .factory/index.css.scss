@@ -6,7 +6,9 @@
 
 /*! Sand Dollar Blogger template by Jason Sutter */
 
-* {
+*,
+::after,
+::before {
   background: 0 0;
   border: 0;
   box-sizing: border-box;
@@ -17,6 +19,80 @@
   text-align: inherit;
   text-decoration: none;
   word-wrap: break-word;
+}
+
+:where(
+  address,
+  article,
+  aside,
+  blockquote,
+  dd,
+  details,
+  div,
+  dl,
+  dt,
+  fieldset,
+  figure,
+  footer,
+  form,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  hgroup,
+  hr,
+  main,
+  nav,
+  ol,
+  p,
+  pre,
+  search,
+  section,
+  table,
+  ul
+):where(:not(:last-child)) {
+  margin-bottom: 1.15rem;
+}
+
+li {
+  &:where(:not(:first-child)) {
+    > :where(
+      address,
+      article,
+      aside,
+      blockquote,
+      dd,
+      details,
+      div,
+      dl,
+      dt,
+      fieldset,
+      figure,
+      footer,
+      form,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      header,
+      hgroup,
+      hr,
+      main,
+      nav,
+      p,
+      pre,
+      search,
+      section,
+      table
+    ):where(:first-child) {
+      margin-top: 1.15rem;
+    }
+  }
 }
 
 :root {
@@ -84,7 +160,7 @@ blockquote {
 caption,
 figcaption {
   color: #777;
-  margin: 0.5rem 0 0;
+  margin: 1rem 0 0;
   text-align: center;
 }
 
@@ -98,7 +174,7 @@ del {
 }
 
 details {
-  summary {
+  > summary {
     @extend label;
     display: block;
     padding-left: 1.15rem;
@@ -119,7 +195,8 @@ details {
     }
   }
   &[open] {
-    summary {
+    > summary {
+      margin-bottom: 1.15rem;
       &::before {
         border-bottom: 0 solid transparent;
         border-left: 4px solid transparent;
@@ -130,12 +207,14 @@ details {
     }
   }
   &[role='tree'] {
-    ul {
-      margin-top: 0;
-      list-style: none;
+    margin-bottom: 0;
+    &[open] {
+      > summary {
+        margin-bottom: 0;
+      }
     }
-    + [role='tree'] {
-      margin-top: 0;
+    ul {
+      list-style: none;
     }
   }
 }
@@ -181,6 +260,14 @@ figure {
   }
 }
 
+form {
+  > p {
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
 h1,
 h2,
 h3,
@@ -223,9 +310,6 @@ hr {
 
 legend {
   padding: 0 0.5rem;
-  + * {
-    margin-top: 0;
-  }
 }
 
 mark {
@@ -295,50 +379,17 @@ ul {
 }
 
 audio,
+iframe,
 video {
   display: block;
   height: auto;
   width: 100%;
 }
 
-* {
-  + address,
-  + article,
-  + aside,
-  + blockquote,
-  + details,
-  + div,
-  + dl,
-  + dt,
-  + fieldset,
-  + figure,
-  + footer,
-  + form,
-  + h1,
-  + h2,
-  + h3,
-  + h4,
-  + h5,
-  + h6,
-  + header,
-  + hr,
-  + main,
-  + nav,
-  + ol,
-  + p,
-  + pre,
-  + search,
-  + section,
-  + table,
-  + ul {
-    margin-top: 1.15rem;
-  }
-}
-
 input,
 select,
 textarea {
-  accent-color: #de7008;
+  accent-color: #968a0a;
   background: #eee;
   border: 1px solid #ccc;
   color: #000;
@@ -352,7 +403,7 @@ textarea {
 
 button {
   @extend input;
-  background: #ffa500;
+  background: #968a0a;
   border-width: 0;
   color: #fff !important;
   cursor: pointer;
@@ -468,8 +519,10 @@ textarea {
 
 @import './_/x/alert';
 @import './_/x/comment';
+@import './_/x/pass';
 @import './_/x/search';
 @import './_/x/t-o-c';
+@import './_/x/user';
 
 body {
   > div {
@@ -497,6 +550,7 @@ body {
       background: #de7008;
       border-top: 3px double #bf5c00;
       color: #f5deb3;
+      margin-bottom: 0;
       h1 {
         border-bottom: 1px solid #e89e47;
         color: inherit;
@@ -504,6 +558,7 @@ body {
           size: 300%;
         }
         letter-spacing: -2px;
+        margin-bottom: 0;
         padding: 25px 5% 10px;
         a {
           color: inherit;
@@ -590,6 +645,7 @@ body {
         }
         > main {
           flex: 1;
+          margin: 0;
           max-width: 800px;
           min-width: 0;
           padding: 25px 0 25px 25px;
@@ -603,7 +659,6 @@ body {
               h2,
               h3 {
                 color: #9e5205;
-                margin-top: 0;
                 a {
                   color: inherit;
                   &:focus,
@@ -618,6 +673,10 @@ body {
                   display: block;
                   font-size: 110%;
                   font-weight: bold;
+                }
+                + h2,
+                + h3 {
+                  margin-top: -1.15rem;
                 }
               }
             }
