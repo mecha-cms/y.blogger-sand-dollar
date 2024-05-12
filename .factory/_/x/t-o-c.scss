@@ -6,8 +6,10 @@
     li {
       &::after,
       &::before {
-        border-color: #e0ad12;
-        border-style: dotted;
+        border: {
+          color: #e0ad12;
+          style: dotted;
+        }
       }
       &:last-child {
         &::after {
