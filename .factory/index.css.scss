@@ -218,10 +218,12 @@ details {
     position: relative;
     text-decoration: none !important;
     &::before {
-      border-bottom: 4px solid transparent;
-      border-left: 8px solid;
-      border-right: 0 solid transparent;
-      border-top: 4px solid transparent;
+      border: {
+        bottom: 4px solid transparent;
+        left: 8px solid;
+        right: 0 solid transparent;
+        top: 4px solid transparent;
+      }
       content: "";
       height: 0;
       left: 0;
@@ -235,10 +237,12 @@ details {
     > summary {
       margin-bottom: 1.15rem;
       &::before {
-        border-bottom: 0 solid transparent;
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-        border-top: 8px solid;
+        border: {
+          bottom: 0 solid transparent;
+          left: 4px solid transparent;
+          right: 4px solid transparent;
+          top: 8px solid;
+        }
         margin-top: -3px;
       }
     }
@@ -598,9 +602,11 @@ body {
         background: #f5e39e;
         border-bottom: 1px solid #e0ad12;
         color: #9e5205;
-        font-family: Verdana, Geneva, sans-serif;
-        font-size: 110%;
-        font-weight: bold;
+        font: {
+          family: Verdana, Geneva, sans-serif;
+          size: 110%;
+          weight: bold;
+        }
         margin: 0;
         padding: 7px 5%;
       }
@@ -609,9 +615,11 @@ body {
       background: #fcfcfc;
       border-bottom: 1px dotted #e0ad12;
       color: #9e5205;
-      font-family: Verdana, Geneva, sans-serif;
-      font-size: 110%;
-      font-weight: bold;
+      font: {
+        family: Verdana, Geneva, sans-serif;
+        size: 110%;
+        weight: bold;
+      }
       line-height: 3rem;
       margin: 0;
       padding: 0 5%;
@@ -697,8 +705,10 @@ body {
                 time {
                   color: #777;
                   display: block;
-                  font-size: 110%;
-                  font-weight: bold;
+                  font: {
+                    size: 110%;
+                    weight: bold;
+                  }
                 }
                 + h2,
                 + h3 {
