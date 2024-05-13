@@ -180,6 +180,7 @@ abbr {
 
 b,
 dt,
+legend,
 strong,
 th {
   @extend %b;
@@ -278,18 +279,18 @@ var {
   @extend %i;
 }
 
+dl {
+  margin: {
+    left: 1.15rem;
+    right: 1.15rem;
+  }
+}
+
 ol,
 ul {
   margin-left: 2rem;
   & & {
     margin-left: 1.15rem;
-  }
-}
-
-dl {
-  margin: {
-    left: 1.15rem;
-    right: 1.15rem;
   }
 }
 
@@ -302,6 +303,10 @@ figure {
   text-align: center;
   img {
     display: block;
+    margin: {
+      left: auto;
+      right: auto;
+    }
   }
 }
 
@@ -349,7 +354,6 @@ h6 {
 }
 
 hr {
-  border: 0;
   border-top: 1px dotted #E0AD12;
 }
 
@@ -425,6 +429,7 @@ ul {
 
 audio,
 iframe,
+picture,
 video {
   display: block;
   height: auto;

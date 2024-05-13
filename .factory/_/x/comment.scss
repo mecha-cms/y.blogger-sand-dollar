@@ -12,11 +12,7 @@
   }
 }
 
-.comment-footer {
-}
-
 .comment-header {
-  @extend .comment-footer;
   .comment-author {
     color: inherit;
     font: inherit;

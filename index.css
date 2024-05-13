@@ -162,6 +162,7 @@ h5,
 h6,
 b,
 dt,
+legend,
 strong,
 th {
   font-weight: bold;
@@ -287,6 +288,11 @@ details[role=tree] + [role=tree] {
   margin-top: 0;
 }
 
+dl {
+  margin-left: 1.15rem;
+  margin-right: 1.15rem;
+}
+
 ol,
 ul {
   margin-left: 2rem;
@@ -296,11 +302,6 @@ ol ul,
 ul ol,
 ul ul {
   margin-left: 1.15rem;
-}
-
-dl {
-  margin-left: 1.15rem;
-  margin-right: 1.15rem;
 }
 
 fieldset {
@@ -313,6 +314,8 @@ figure {
 }
 figure img {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 form > p > label {
@@ -354,7 +357,6 @@ h6 {
 }
 
 hr {
-  border: 0;
   border-top: 1px dotted #E0AD12;
 }
 
@@ -423,6 +425,7 @@ ul {
 
 audio,
 iframe,
+picture,
 video {
   display: block;
   height: auto;
