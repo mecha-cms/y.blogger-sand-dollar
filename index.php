@@ -3,8 +3,8 @@
 $z = defined('TEST') && TEST ? '.' : '.min.';
 Asset::set(__DIR__ . D . 'index' . $z . 'css', 20);
 
-lot('links', new Anemone((static function ($links, $state, $url) {
-    $index = LOT . D . 'page' . D . trim(strtr($state->route, '/', D), D) . '.page';
+lot('links', $links = new Anemone((static function ($links, $state, $url) {
+    $index = LOT . D . 'page' . D . trim(strtr($state->route ?? 'index', '/', D), D) . '.page';
     $path = $url->path . '/';
     foreach (g(LOT . D . 'page', 'page') as $k => $v) {
         // Exclude home page
@@ -69,8 +69,4 @@ if (isset($state->x->excerpt) && $state->is('page')) {
     Hook::set('page.content', function ($content) {
         return null !== $content ? strtr($content, ["\f" => '<hr id="next:' . $this->id . '" role="doc-pagebreak">']) : null;
     });
-}
-
-if ($skin = $state->y->{'blogger-moto'}->skin->name ?? "") {
-    State::set('[y].skin:' . $skin, true);
 }

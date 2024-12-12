@@ -1,0 +1,35 @@
+@mixin comment {
+  .comments,
+  .comments-body,
+  .comments-footer,
+  .form-comment {
+    margin-top: 1.15rem;
+  }
+  .comments {
+    h3,
+    h4 {
+      font-size: 125%;
+    }
+  }
+  .comment-header {
+    .comment-author {
+      color: inherit;
+      font: inherit;
+      font-weight: bold;
+      letter-spacing: 0;
+    }
+  }
+  .form-comment {
+    p {
+      input,
+      select,
+      textarea {
+        + br {
+          + small {
+            color: #777;
+          }
+        }
+      }
+    }
+  }
+}
