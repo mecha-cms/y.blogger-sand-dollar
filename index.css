@@ -127,11 +127,6 @@ a,
 [role=link] {
   color: #de7008;
 }
-a img,
-[role=link] img {
-  background: red;
-  padding: 4px;
-}
 a:focus,
 [role=link]:focus,
 a:hover,
@@ -225,6 +220,12 @@ ins,
 [role=insertion],
 u {
   text-decoration: underline;
+}
+
+a img,
+[role=link] img {
+  background: #e0ad12;
+  padding: 4px;
 }
 
 abbr {

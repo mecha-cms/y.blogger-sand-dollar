@@ -114,10 +114,6 @@ li {
 
 %a {
   color: #de7008;
-  img {
-    background: red;
-    padding: 4px;
-  }
   &:focus,
   &:hover {
     color: #e0ad12;
@@ -174,6 +170,10 @@ li {
 
 a {
   @extend %a;
+  img {
+    background: #e0ad12;
+    padding: 4px;
+  }
 }
 
 abbr {
