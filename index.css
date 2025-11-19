@@ -686,18 +686,6 @@ body > div > nav + div > aside {
   padding: 25px 25px 25px 0;
   width: 250px;
 }
-body > div > header + div > aside > div li [role=status]::after,
-body > div > header + div > aside > div summary [role=status]::after,
-body > div > nav + div > aside > div li [role=status]::after,
-body > div > nav + div > aside > div summary [role=status]::after {
-  content: ")";
-}
-body > div > header + div > aside > div li [role=status]::before,
-body > div > header + div > aside > div summary [role=status]::before,
-body > div > nav + div > aside > div li [role=status]::before,
-body > div > nav + div > aside > div summary [role=status]::before {
-  content: "(";
-}
 body > div > header + div > aside > div::after,
 body > div > nav + div > aside > div::after {
   clear: both;

@@ -30,51 +30,71 @@ function page__content($content) {
 
 function route__archive() {
     \extract(\lot());
-    if ($state->is('error')) {
+    if (!$state->has('part') || $state->is('error') || !isset($archive)) {
         return;
     }
-    if (!isset($archive)) {
-        return;
-    }
-    $t = \State::get('[x].query.archive') ?? "";
-    $format = (false === \strpos($t, '-') ? "" : '%B ') . '%Y';
-    if ($search = \State::get('[x].query.search')) {
-        \Alert::info('Showing %s published in %s and matched with query %s.', ['posts', '<b>' . $archive->i($format) . '</b>', '&#x201c;' . $search . '&#x201d;']);
+    $f = (false === \strpos($state->q('archive.name') ?? "", '-') ? "" : '%B ') . '%Y';
+    if ($q = $state->q('search.query')) {
+        \Alert::info('Showing %s of %s published in %s and matched with query %s.', ['posts', '<b>' . $page->title . '</b>', '<b>' . $archive->i($f) . '</b>', '&#x201c;' . $q . '&#x201d;']);
     } else {
-        \Alert::info('Showing %s published in %s.', ['posts', '<b>' . $archive->i($format) . '</b>']);
+        \Alert::info('Showing %s of %s published in %s.', ['posts', '<b>' . $page->title . '</b>', '<b>' . $archive->i($f) . '</b>']);
+    }
+}
+
+function route__author() {
+    \extract(\lot());
+    if (!$state->has('part') || $state->is('error') || !isset($author)) {
+        return;
+    }
+    if ($q = $state->q('search.query')) {
+        \Alert::info('Showing all %s written by %s and matched with query %s.', ['posts', '<b>' . $author->title . '</b>', '&#x201c;' . $q . '&#x201d;']);
+    } else {
+        if ($q = $state->q('author.name')) {
+            if ($page instanceof \Author) {
+                \Alert::info('Showing all %s written by %s.', ['posts', '<b>' . $page->title . '</b>']);
+            } else {
+                \Alert::info('Showing all %s of %s written by %s.', ['posts', '<b>' . $page->title . '</b>', '<b>' . $author->title . '</b>']);
+            }
+        } else {
+            if ($page->path) {
+                \Alert::info('Showing all %s of %s.', ['authors', '<b>' . $page->title . '</b>']);
+            } else {
+                \Alert::info('Showing all %s.', ['authors']);
+            }
+        }
     }
 }
 
 function route__search() {
     \extract(\lot());
-    if ($state->is('error')) {
+    if (!$state->has('part') || $state->is('error') || !($q = $state->q('search.query'))) {
         return;
     }
-    if (!$search = \State::get('[x].query.search')) {
-        return;
-    }
-    if (!$state->is('archives') && !$state->is('tags')) {
-        \Alert::info('Showing %s matched with query %s.', ['posts', '&#x201c;' . $search . '&#x201d;']);
+    if (!$state->is('archives') && !$state->is('authors') && !$state->is('tags')) {
+        \Alert::info('Showing %s matched with query %s.', ['posts', '&#x201c;' . $q . '&#x201d;']);
     }
 }
 
 function route__tag() {
     \extract(\lot());
-    if ($state->is('error')) {
+    if (!$state->has('part') || $state->is('error') || !isset($tag)) {
         return;
     }
-    if (!isset($tag)) {
-        return;
-    }
-    if ($search = \State::get('[x].query.search')) {
-        \Alert::info('Showing %s tagged in %s and matched with query %s.', ['posts', '<b>' . $tag->title . '</b>', '&#x201c;' . $search . '&#x201d;']);
-    } else if (\State::get('[x].query.tag')) {
-        \Alert::info('Showing %s tagged in %s.', ['posts', '<b>' . $tag->title . '</b>']);
+    if ($q = $state->q('search.query')) {
+        \Alert::info('Showing all %s tagged in %s and matched with query %s.', ['posts', '<b>' . $tag->title . '</b>', '&#x201c;' . $q . '&#x201d;']);
     } else {
-        if (isset($page) && null !== $page->path) {
-            \Alert::info('Showing all %s in %s.', ['tags', '<b>' . $page->title . '</b>']);
+        if ($q = $state->q('tag.name')) {
+            if ($page instanceof \Tag) {
+                \Alert::info('Showing all %s tagged in %s.', ['posts', '<b>' . $page->title . '</b>']);
+            } else {
+                \Alert::info('Showing all %s of %s tagged in %s.', ['posts', '<b>' . $page->title . '</b>', '<b>' . $tag->title . '</b>']);
+            }
         } else {
-            \Alert::info('Showing all %s.', ['tags']);
+            if ($page->path) {
+                \Alert::info('Showing all %s of %s.', ['tags', '<b>' . $page->title . '</b>']);
+            } else {
+                \Alert::info('Showing all %s.', ['tags']);
+            }
         }
     }
 }
@@ -83,6 +103,7 @@ function route__tag() {
 
 if (isset($state->x->alert)) {
     \Hook::set('route.archive', __NAMESPACE__ . "\\route__archive", 100.1);
+    \Hook::set('route.author', __NAMESPACE__ . "\\route__author", 100.1);
     \Hook::set('route.search', __NAMESPACE__ . "\\route__search", 100.1);
     \Hook::set('route.tag', __NAMESPACE__ . "\\route__tag", 100.1);
 }

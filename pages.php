@@ -18,8 +18,7 @@
                     <?= $page->title; ?>
                   </a>
                 <?php else: ?>
-                  <?php $children = $page->children ?? false; ?>
-                  <a href="<?= eat($page->url . ($children && $children->count ? '/1' : "")); ?>">
+                  <a href="<?= eat($page->url . (q($page->children) ? '/1' : "")); ?>">
                     <?= $page->title; ?>
                   </a>
                 <?php endif; ?>
@@ -34,7 +33,7 @@
                 </p>
               <?php endif; ?>
             </div>
-            <?= self::get('page.footer', ['page' => $page]); ?>
+            <?= self::get('footer.page', ['page' => $page]); ?>
           </article>
         <?php endforeach; ?>
         <?php if (isset($state->x->pager)): ?>
@@ -44,7 +43,7 @@
         <?php endif; ?>
       <?php else: ?>
         <p role="status">
-          <?php if ($site->has('part')): ?>
+          <?php if ($site->has('prev')): ?>
             <?= i('No more %s to show.', 'posts'); ?>
           <?php else: ?>
             <?= i('No %s yet.', 'posts'); ?>
